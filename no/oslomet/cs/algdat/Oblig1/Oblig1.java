@@ -3,13 +3,30 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Løsningsforslag Oblig 1 ////////////////////////
 
 import java.lang.UnsupportedOperationException;
+import java.util.NoSuchElementException;
 
 public class Oblig1 {
     private Oblig1() {}
 
     ///// Oppgave 1 //////////////////////////////////////
-    public static int maks(int[] a) {
-        throw new UnsupportedOperationException();
+    public static int maks(int[] a) throws NoSuchElementException {
+        if(a.length == 0) {
+            throw new NoSuchElementException();
+        } else {
+            if(a.length == 1) {
+                return a[0];
+            }
+            int begin = 0;
+            int end = a.length-1;
+            for(int i = begin; i < end; i++) {
+                if(a[i] > a[i+1]) {
+                    int value = a[i];
+                    a[i] = a[i + 1];
+                    a[i+1] = value;
+                }
+            }
+        }
+        return a[a.length-1];
     }
 
     public static int ombyttinger(int[] a) {
