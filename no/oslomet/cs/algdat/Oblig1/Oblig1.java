@@ -30,7 +30,18 @@ public class Oblig1 {
     }
 
     public static int ombyttinger(int[] a) {
-        throw new UnsupportedOperationException();
+        int begin = 0;
+        int end = a.length-1;
+        int antallOmbyttinger = 0;
+        for(int i = begin; i < end; i++) {
+            if(a[i] > a[i+1]) {
+                int value = a[i];
+                a[i] = a[i + 1];
+                a[i+1] = value;
+                antallOmbyttinger++;
+            }
+        }
+        return antallOmbyttinger;
     }
 
     ///// Oppgave 2 //////////////////////////////////////
