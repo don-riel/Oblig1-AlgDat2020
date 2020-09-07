@@ -9,7 +9,7 @@ public class Oblig1 {
     private Oblig1() {}
 
     ///// Oppgave 1 //////////////////////////////////////
-    public static int maks(int[] a) throws NoSuchElementException {
+    public static int maks(int[] a) {
         if(a.length == 0) {
             throw new NoSuchElementException();
         } else {
@@ -29,6 +29,14 @@ public class Oblig1 {
         return a[a.length-1];
     }
 
+    //Når blir det flest ombyttinger?
+    // - Når arrayet er sortert i omvendt rekkefølge er det flest ombyttinger.
+
+    //Når blir det færrest?
+    // - Det færrest når arrayet er sortert.
+
+    //Hvor mange blir det i gjennomsnitt?
+
     public static int ombyttinger(int[] a) {
         int begin = 0;
         int end = a.length-1;
@@ -46,18 +54,85 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new UnsupportedOperationException();
+
+        int antall = 1;
+
+        //check if array length is 0
+        if(a.length == 0) {
+            return 0;
+        }
+        //check if array length is equal to 1
+        if(a.length == 1) {
+            return 1;
+        }
+
+        if(a.length > 1) {
+            //check if array is sorted
+            if(!isSorted(a)) {
+                throw new IllegalStateException("Usortert tabbel!");
+            } else {
+                for (int i = 1; i < a .length; i++)
+                {
+                    int j = 0;
+                    for (j = 0; j < i; j++)
+                        if (a[i] == a[j]) {
+                            break;
+                        }
+                    if (i == j) {
+                        antall++;
+                    }
+
+                }
+                return antall;
+            }
+        }
+
+        return antall;
+    }
+
+    public static boolean isSorted(int[] a) {
+        for(int i = 0; i < a.length -1 ; i++) {
+            if(a[i] > a[i + 1]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int antall = 1;
+
+        //check if array length is 0
+        if(a.length == 0) {
+            return 0;
+        }
+        //check if array length is equal to 1
+        if(a.length == 1) {
+            return 1;
+        }
+
+        for (int i = 1; i < a .length; i++)
+        {
+            int j = 0;
+            for (j = 0; j < i; j++)
+                if (a[i] == a[j]) {
+                    break;
+                }
+            if (i == j) {
+                antall++;
+            }
+
+        }
+        return antall;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new UnsupportedOperationException();
+
     }
+
+
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {

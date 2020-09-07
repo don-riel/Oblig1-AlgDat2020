@@ -80,7 +80,7 @@ public class Oblig1Test {
         assertEquals(0, antallFeil, "Du har for mange feil i oppgave 1");
     }
 
-    /*///// Oppgave 2 /////////////////////////////////////
+    ///// Oppgave 2 /////////////////////////////////////
     @org.junit.jupiter.api.Test
     void oppgave2() {
         int antallFeil = 0;
@@ -330,7 +330,7 @@ public class Oblig1Test {
     }
 
     ///// Oppgave 5 //////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    /*@org.junit.jupiter.api.Test
     void oppgave5() {
         int antallFeil = 0;
 
@@ -370,10 +370,10 @@ public class Oblig1Test {
         }
 
         assertEquals(0, antallFeil, "Du har for mange feil i oppgave 5");
-    }
+    }*/
 
     ///// Oppgave 6 //////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    /*@org.junit.jupiter.api.Test
     void oppgave6() {
         int antallFeil = 0;
 
@@ -483,10 +483,10 @@ public class Oblig1Test {
         }
 
         assertEquals(0, antallFeil, "Du har for mange feil i oppgave 6");
-    }
+    }*/
 
     ///// Oppgave 7 //////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    /*@org.junit.jupiter.api.Test
     void oppgave7() {
         int antallFeil = 0;
         String s = null;
@@ -610,10 +610,10 @@ public class Oblig1Test {
 
         assertEquals(0, antallFeil, "Du har for mange feil i oppgave 7");
 
-    }
+    }*/
 
     ///// Oppgave 8 //////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    /*@org.junit.jupiter.api.Test
     void oppgave8() {
         int antallFeil = 0;
 
@@ -713,10 +713,10 @@ public class Oblig1Test {
         }
 
         assertEquals(0, antallFeil, "Du har for mange feil i oppgave 8");
-    }
+    }*/
 
     ///// Oppgave 9 //////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    /*@org.junit.jupiter.api.Test
     void oppgave9() {
         int antallFeil = 0;
 
@@ -804,10 +804,10 @@ public class Oblig1Test {
         }
 
         assertEquals(0, antallFeil, "Du har for mange feil i oppgave 9");
-    }
+    }*/
 
     ///// Oppgave 10 //////////////////////////////////////
-    @org.junit.jupiter.api.Test
+    /*@org.junit.jupiter.api.Test
     void oppgave10() {
         int antallFeil = 0;
         boolean b = false;
