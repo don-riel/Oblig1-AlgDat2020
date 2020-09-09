@@ -99,16 +99,11 @@ public class Oblig1 {
         if(a.length == 0) {
             return;
         }
-        int middle = partition(a, 0, a.length-1);
-        if(middle == 0) {
-            sort(a, 0, a.length);
-        } else {
-            sort(a, 0, middle);
-            sort(a, middle, a.length);
-        }
+        partition(a, 0, a.length-1);
+
     }
 
-    static int partition(int[]a, int begin, int end) {
+    static void partition(int[]a, int begin, int end) {
         int i = begin; int j = end;
 
         while( i < j) {
@@ -119,20 +114,21 @@ public class Oblig1 {
                 i++;
             }
             if((i == end && j== end) || (i==0 && j== 0)) {
-                return 0;
+                sort(a, 0, a.length);
+                break;
             }
+            int temp = a[i];
             if(i < j) {
-                int temp = a[i];
                 a[i] = a[j];
                 a[j] = temp;
             } else {
-                int temp = a[i];
                 a[i] = a[end];
                 a[end] = temp;
+                sort(a, 0, i);
+                sort(a, i, end+1);
             }
 
         }
-        return i;
     }
 
     static void sort(int[] a, int begin, int end) {
@@ -142,7 +138,6 @@ public class Oblig1 {
                     int temp = a[i];
                     a[i] = a[j];
                     a[j] = temp;
-
                 }
             }
         }
