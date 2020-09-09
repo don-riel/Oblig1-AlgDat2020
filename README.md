@@ -9,6 +9,6 @@ Oppgaven er levert av følgende studenter:
 # Arbeidsfordeling
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
-* Doonni har hatt hovedansvar for oppgave 1, 3, og 5. 
+* Donni har hatt hovedansvar for oppgave 1, 3, og 5. 
 
 
