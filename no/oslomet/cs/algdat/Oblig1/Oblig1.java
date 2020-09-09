@@ -54,22 +54,13 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
+        int antall = 0;
             if(!isSorted(a)) {
                 throw new IllegalStateException("Usortert tabbel!");
             } else {
-                int count = 0;
-                for (int i = a.length-1; i >= 0; i--) {
-                    for (int j = 0; j <= a.length; j++) {
-                        if(j == i) {
-                            count++;
-                        }
-                        if(a[i] == a[j]) {
-                            break;
-                        }
-                    }
-                }
-                return count;
+                antall = getAntall(a, antall);
             }
+            return antall;
     }
 
     public static boolean isSorted(int[] a) {
@@ -83,18 +74,24 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        int count = 0;
-        for (int i = a.length-1; i >= 0; i--) {
-            for (int j = 0; j <= a.length; j++) {
-                if(j == i) {
-                    count++;
+        int antall = 0;
+
+        antall = getAntall(a, antall);
+        return antall;
+    }
+
+    private static int getAntall(int[] a, int antall) {
+        for (int i = a.length-1; i  >=0; i--) {
+            for (int j = 0; j < a.length; j++) {
+                if (i == j) {
+                    antall++;
                 }
                 if(a[i] == a[j]) {
                     break;
                 }
             }
         }
-        return count;
+        return antall;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
@@ -102,26 +99,25 @@ public class Oblig1 {
         if(a.length == 0) {
             return;
         }
-        int middle = delPartition(a, 0, a.length-1);
+        int middle = partition(a, 0, a.length-1);
         if(middle == 0) {
             sort(a, 0, a.length);
         } else {
             sort(a, 0, middle);
             sort(a, middle, a.length);
-
         }
     }
 
-    static int delPartition(int[]a, int begin, int end) {
+    static int partition(int[]a, int begin, int end) {
         int i = begin; int j = end;
 
         while( i < j) {
             while (a[j] % 2 == 0 && j > 0) {
                 j--;
-            };
+            }
             while (a[i] % 2 != 0 && i < end) {
                 i++;
-            };
+            }
             if((i == end && j== end) || (i==0 && j== 0)) {
                 return 0;
             }
@@ -152,8 +148,6 @@ public class Oblig1 {
         }
     }
 
-
-
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
         if(a.length == 0) {
@@ -172,7 +166,7 @@ public class Oblig1 {
         a[0] = last;
     }
 
-    ///// Oppgave 6 //////////////////////////////////////
+    /*///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
         throw new UnsupportedOperationException();
     }
@@ -205,6 +199,6 @@ public class Oblig1 {
 
     public static boolean inneholdt(String a, String b) {
         throw new UnsupportedOperationException();
-    }
+    }*/
 
 }  // Oblig1
