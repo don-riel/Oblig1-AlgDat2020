@@ -330,7 +330,7 @@ public class Oblig1Test {
     }
 
     ///// Oppgave 5 //////////////////////////////////////
-    /*@org.junit.jupiter.api.Test
+    @org.junit.jupiter.api.Test
     void oppgave5() {
         int antallFeil = 0;
 
@@ -370,7 +370,7 @@ public class Oblig1Test {
         }
 
         assertEquals(0, antallFeil, "Du har for mange feil i oppgave 5");
-    }*/
+    }
 
     ///// Oppgave 6 //////////////////////////////////////
     /*@org.junit.jupiter.api.Test

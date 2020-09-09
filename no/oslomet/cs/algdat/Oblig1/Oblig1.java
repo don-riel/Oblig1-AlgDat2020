@@ -54,40 +54,22 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-
-        int antall = 1;
-
-        //check if array length is 0
-        if(a.length == 0) {
-            return 0;
-        }
-        //check if array length is equal to 1
-        if(a.length == 1) {
-            return 1;
-        }
-
-        if(a.length > 1) {
-            //check if array is sorted
             if(!isSorted(a)) {
                 throw new IllegalStateException("Usortert tabbel!");
             } else {
-                for (int i = 1; i < a .length; i++)
-                {
-                    int j = 0;
-                    for (j = 0; j < i; j++)
-                        if (a[i] == a[j]) {
+                int count = 0;
+                for (int i = a.length-1; i >= 0; i--) {
+                    for (int j = 0; j <= a.length; j++) {
+                        if(j == i) {
+                            count++;
+                        }
+                        if(a[i] == a[j]) {
                             break;
                         }
-                    if (i == j) {
-                        antall++;
                     }
-
                 }
-                return antall;
+                return count;
             }
-        }
-
-        return antall;
     }
 
     public static boolean isSorted(int[] a) {
@@ -101,42 +83,93 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        int antall = 1;
-
-        //check if array length is 0
-        if(a.length == 0) {
-            return 0;
-        }
-        //check if array length is equal to 1
-        if(a.length == 1) {
-            return 1;
-        }
-
-        for (int i = 1; i < a .length; i++)
-        {
-            int j = 0;
-            for (j = 0; j < i; j++)
-                if (a[i] == a[j]) {
+        int count = 0;
+        for (int i = a.length-1; i >= 0; i--) {
+            for (int j = 0; j <= a.length; j++) {
+                if(j == i) {
+                    count++;
+                }
+                if(a[i] == a[j]) {
                     break;
                 }
-            if (i == j) {
-                antall++;
             }
-
         }
-        return antall;
+        return count;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
+        if(a.length == 0) {
+            return;
+        }
+        int middle = delPartition(a, 0, a.length-1);
+        if(middle == 0) {
+            sort(a, 0, a.length);
+        } else {
+            sort(a, 0, middle);
+            sort(a, middle, a.length);
 
+        }
+    }
+
+    static int delPartition(int[]a, int begin, int end) {
+        int i = begin; int j = end;
+
+        while( i < j) {
+            while (a[j] % 2 == 0 && j > 0) {
+                j--;
+            };
+            while (a[i] % 2 != 0 && i < end) {
+                i++;
+            };
+            if((i == end && j== end) || (i==0 && j== 0)) {
+                return 0;
+            }
+            if(i < j) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            } else {
+                int temp = a[i];
+                a[i] = a[end];
+                a[end] = temp;
+            }
+
+        }
+        return i;
+    }
+
+    static void sort(int[] a, int begin, int end) {
+        for(int i = begin; i < end; i++) {
+            for(int j = i; j < end; j++ ) {
+                if(a[i] > a[j]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+
+                }
+            }
+        }
     }
 
 
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new UnsupportedOperationException();
+        if(a.length == 0) {
+            return;
+        }
+        int left = a.length-1;
+        char last = a[left];
+
+        for(int i = left-1; i >= 0; i--) {
+            char temp = a[i];
+            a[i+1] = temp;
+            if(i != 0) {
+                a[i] = a[i-1];
+            }
+        }
+        a[0] = last;
     }
 
     ///// Oppgave 6 //////////////////////////////////////
