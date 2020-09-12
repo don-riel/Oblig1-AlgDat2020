@@ -3,6 +3,7 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Løsningsforslag Oblig 1 ////////////////////////
 
 import java.lang.UnsupportedOperationException;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -114,7 +115,7 @@ public class Oblig1 {
                 i++;
             }
             if((i == end && j== end) || (i==0 && j== 0)) {
-                sort(a, 0, a.length);
+                quickSort(a, 0, a.length-1);
                 break;
             }
             int temp = a[i];
@@ -124,23 +125,40 @@ public class Oblig1 {
             } else {
                 a[i] = a[end];
                 a[end] = temp;
-                sort(a, 0, i);
-                sort(a, i, end+1);
+                quickSort(a, 0, i-1);
+                quickSort(a, i, end);
             }
 
         }
     }
 
-    static void sort(int[] a, int begin, int end) {
-        for(int i = begin; i < end; i++) {
-            for(int j = i; j < end; j++ ) {
-                if(a[i] > a[j]) {
-                    int temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
-                }
+    public static void quickSort(int arr[], int begin, int end) {
+        if (begin < end) {
+            int partitionIndex = sortPartition(arr, begin, end);
+
+            quickSort(arr, begin, partitionIndex-1);
+            quickSort(arr, partitionIndex+1, end);
+        }
+    }
+
+    private static int sortPartition(int arr[], int begin, int end) {
+        int pivot = arr[end];
+        int i = (begin-1);
+
+        for (int j = begin; j < end; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+
+                int swapTemp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = swapTemp;
             }
         }
+        int swapTemp = arr[i+1];
+        arr[i+1] = arr[end];
+        arr[end] = swapTemp;
+
+        return i+1;
     }
 
     ///// Oppgave 5 //////////////////////////////////////
@@ -164,21 +182,74 @@ public class Oblig1 {
     /*///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
         throw new UnsupportedOperationException();
-    }
+    }*/
 
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new UnsupportedOperationException();
+
+        char[] a = s.toCharArray();
+        char[] b = t.toCharArray();
+
+        char[] c = new char[a.length + b.length];
+        int i = 0, j = 0, k = 0;
+
+        while (i < a.length && j < b.length)
+        {
+            c[k++] = a[i++];
+            c[k++] = b[j++];
+        }
+
+        while (i < a.length) c[k++] = a[i++];
+        while (j < b.length) c[k++] = b[j++];
+
+        return arrToStr(c);
     }
 
     /// 7b)
     public static String flett(String... s) {
-        throw new UnsupportedOperationException();
+
+        char[][] ch = new char[s.length][];
+
+        for(int i = 0; i < ch.length; i++) {
+            char[] arr;
+            arr = s[i].toCharArray();
+            ch[i] = arr;
+        }
+
+        StringBuilder str = new StringBuilder();
+
+        int length = 0;
+        for (char[] value : ch) {
+            if (value.length > length) {
+                length = value.length;
+            }
+        }
+
+        for(int i = 0; i < length; i++) {
+            for (char[] chars : ch) {
+                if (chars.length == 0 || chars.length <= i) {
+                    continue;
+                }
+                str.append(chars[i]);
+            }
+        }
+        return str.toString();
     }
 
+    static String arrToStr(char[] c) {
+        StringBuilder sb = new StringBuilder();
+
+        for (char value : c) {
+            sb.append(value);
+        }
+
+        return sb.toString();
+    }
+
+
     ///// Oppgave 8 //////////////////////////////////////
-    public static int[] indekssortering(int[] a) {
+    /*public static int[] indekssortering(int[] a) {
         throw new UnsupportedOperationException();
     }
 
