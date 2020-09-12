@@ -9,7 +9,7 @@ Oppgaven er levert av følgende studenter:
 # Arbeidsfordeling
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
-* Donni har hatt hovedansvar for oppgave 1,2,3,4 og 5. 
+* Donni har hatt hovedansvar for oppgave 1,2,3,4, 5 og 7. 
 
 # Utsrkift av kjøring av test-programmet
 
